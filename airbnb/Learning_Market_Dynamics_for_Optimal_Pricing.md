@@ -6,9 +6,41 @@
 
 How do you think market dynamics influences this beautiful home in Cape Town?
 
-Market dynamics plays a key role in matching guests with hosts in two-sided marketplaces such as Airbnb. Supply and demand vary drastically across different locations, different check in dates and different lead times until check-in. It is important for us to understand and forecast these spatial and temporal trends in order to find better matches for our community of hosts and guests.
+```
+market dynamics가 케이프타운에 있는 이 아름다운 집에 어떻게 영향을 미칠까?
+```
 
-In this post, we describe a framework used to model lead time dynamics in order to help hosts price their homes more competitively and improve their earnings potential. We embrace both machine learning (ML) and structural modeling to achieve improved predictive performance and model interpretability.
+Market dynamics plays a key role in matching guests with hosts in two-sided marketplaces such as Airbnb. 
+
+```
+Market dynamics는 에어비앤비와 같은 two-sided marketplaces에서 게스트와 호스트를 matching시키는데 중요한 역할을 한다. 
+```
+
+Supply and demand vary drastically across different locations, different check in dates and different lead times until check-in. 
+
+```
+위치, 체크인 날짜, 체크인까지 걸리는 lead time에 따라 공급과 수요가 크게 달라진다 
+```
+
+It is important for us to understand and forecast these spatial and temporal trends in order to find better matches for our community of hosts and guests.
+
+```
+에어비앤비 커뮤니티의 호스트와 게스트를 더 잘 매칭해주기 위해서는 이런 공간적, 시간적 트렌드를 이해하고 예측하는 것이 중요하다. 
+```
+
+In this post, we describe a framework used to model lead time dynamics in order to help hosts price their homes more competitively and improve their earnings potential.
+
+```
+이 글에서는 호스트가 가격을 경쟁력있게 책정하고 잠재 수익을 향상시킬 수 있도록 하는 lead time dynamics를 모델링하기 위한 프레임워크에 대해 설명한다.
+```
+
+ We embrace both machine learning (ML) and structural modeling to achieve improved predictive performance and model interpretability.
+
+```
+우리는 예측 성능과 모델의 해석 가능성을 높이기 위해 기계학습(ML)과 구조 모델링을 채택한다. 
+```
+
+
 
 ### A Primer on Lead Time Dynamics
 
