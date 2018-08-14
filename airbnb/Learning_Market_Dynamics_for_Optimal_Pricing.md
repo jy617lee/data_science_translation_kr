@@ -32,11 +32,33 @@ In this post, we describe a framework used to model lead time dynamics in order 
 
 ### A Primer on Lead Time Dynamics
 
+Lead Time Dynamics에 대한 입문
+
 ![img](https://cdn-images-1.medium.com/max/900/1*oGd2Q_gx8UNHnKUpbyp7wg.png)
 
-The lead time for a booking refers to the time between the date of booking and the trip check-in date. Taking a trip with a check-in date of New Year’s Eve (December 31) as an example, when a guest books 30 days in advance (on December 1), the booking lead time is 30 days. On the other hand, the booking lead time would be 0 for guests who make a last minute reservation on the day of check-in.
+The lead time for a booking refers to the time between the date of booking and the trip check-in date. 
 
-Guests will continue to make bookings for the New Year’s Eve as time progresses and the booking date gets closer and closer to the end of the year. This booking process reflects the inflow of demand and can be treated as a stochastic **arrival process**. The corresponding distribution of bookings over lead time is the booking **lead time distribution**.
+예약 lead time은 예약 날짜와 체크인 날짜 사이의 시간을 뜻한다. 
+
+Taking a trip with a check-in date of New Year’s Eve (December 31) as an example, when a guest books 30 days in advance (on December 1), the booking lead time is 30 days. 
+
+새해 전날(12월 31일)을 예로 들면, 게스트가 30일 전(12월 1일)에 예약을 했다면 예약 lead time은 30이다. 
+
+On the other hand, the booking lead time would be 0 for guests who make a last minute reservation on the day of check-in.
+
+반면 체크인 당일 예약을 했다면 예약 lead time은 0이다. 
+
+Guests will continue to make bookings for the New Year’s Eve as time progresses and the booking date gets closer and closer to the end of the year.
+
+새해 전날이 다가올 수록 게스트들은 예약을 할 것이고, 예약 날짜는 점점 새해 전 날에 가까워진다. 
+
+This booking process reflects the inflow of demand and can be treated as a stochastic **arrival process**. 
+
+이 예약 프로세스는 수요의 유입을 반영한다. 또한 **stochastic arrival process**로 간주될 수도 있다. 
+
+The corresponding distribution of bookings over lead time is the booking **lead time distribution**.
+
+**이 문장은 무슨 말이냐 전혀 모르겠군**
 
 #### Why Model the Lead Time Distribution?
 
