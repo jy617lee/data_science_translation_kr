@@ -62,13 +62,45 @@ The corresponding distribution of bookings over lead time is the booking **lead 
 
 #### Why Model the Lead Time Distribution?
 
+왜 lead time 분산을 모델링 하는가?
+
 ![img](https://cdn-images-1.medium.com/max/900/1*_8FqWVJDL3kfL_GWjKe4OA.png)
 
 Nightly prices for each check-in date on the calendar as set by Smart Pricing
 
-Learning the booking lead time distribution helps power our pricing system. Airbnb launched Smart Pricing to help hosts set optimal prices and maximize earnings. These tools take into account factors like demand, supply and individual listing properties in order to make price suggestions for all check-in dates on the calendar. However, market conditions typically change as booking dates get closer to check-in dates, and, as a result, it is critical for us to account for these changes and help hosts keep their prices optimized for market conditions.
+Smart Pricing으로 설정된 체크인 날짜의 야간 가격
 
-As an example, on a high demand night like New Year’s Eve, guests tend to book more in advance (i.e. at long lead times) than at other times of the year. This information helps set the right prices for New Year’s Eve. Similarly, locations play a big part in this too. A supply-constrained market gets bookings well ahead of check-ins compared to a holiday market like South Beach, Miami. By learning the arrival process for every check-in date and location, Smart Pricing accounts for this “early demand” and generates a pricing policy that allows hosts to optimally update their prices as we approach check-in.
+Learning the booking lead time distribution helps power our pricing system. 
+
+예약 lead time 분산을 학습하는 것은 우리의 가격 시스템을 강화하는데 도움이 된다
+
+Airbnb launched Smart Pricing to help hosts set optimal prices and maximize earnings. 
+
+에어비앤비는 적정 가격을 설정하고 호스트의 수입을 극대화할 수 있는 Smart Pricing이라는 서비스를 런칭했다. 
+
+These tools take into account factors like demand, supply and individual listing properties in order to make price suggestions for all check-in dates on the calendar. 
+
+이 도구는 가능한 모든 체크인 날짜에 대해 수요, 공급, 개인의 listing properties와 같은 요소들을 고려하여 가격 제안을 합니다. 
+
+However, market conditions typically change as booking dates get closer to check-in dates, and, as a result, it is critical for us to account for these changes and help hosts keep their prices optimized for market conditions.
+
+하지만 일반적으로 체크인 날짜가 가까워질 수록 시장의 상황이 변합니다. 그래서 시장의 변화들을 설명하고 호스트가 시장 상황에 맞게 가격을 최적화하도록 도와주는 것이 중요합니다. 
+
+As an example, on a high demand night like New Year’s Eve, guests tend to book more in advance (i.e. at long lead times) than at other times of the year. 
+
+예를 들어, 새해 전날 처럼 수요가 많은 날에는, 다른 날에 비해 게스트들이 예약을 미리 하는 경향이 있습니다. (i.e 긴 lead time).
+
+locations play a big part in this too. 
+
+장소도 여기에서 큰 부분을 차지합니다. 
+
+A supply-constrained market gets bookings well ahead of check-ins compared to a holiday market like South Beach, Miami. 
+
+휴가 시장에 비해 마이애미의 사우스비치처럼 공급이 많지 않은 시장에서는 체크인 전에 예약이 잘 됩니다. 
+
+By learning the arrival process for every check-in date and location, Smart Pricing accounts for this “early demand” and generates a pricing policy that allows hosts to optimally update their prices as we approach check-in.
+
+모든 체크인 날짜와 장소에 대한 arrival process를 학습함으로써, Smart Pricing은 이 '초기 수요'(체크인 전에 예약을 하는) 를 설명하고 호스트가 체크인 날짜가 다가올 수록 가격을 최적으로 업데이트 할 수 있는 가격 정책을 생성합니다. 
 
 #### <u>What Does the Arrival Process Look Like?</u>
 
