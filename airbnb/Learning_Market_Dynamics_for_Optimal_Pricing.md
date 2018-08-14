@@ -28,15 +28,15 @@ Learning the booking lead time distribution helps power our pricing system. Airb
 
 As an example, on a high demand night like New Year’s Eve, guests tend to book more in advance (i.e. at long lead times) than at other times of the year. This information helps set the right prices for New Year’s Eve. Similarly, locations play a big part in this too. A supply-constrained market gets bookings well ahead of check-ins compared to a holiday market like South Beach, Miami. By learning the arrival process for every check-in date and location, Smart Pricing accounts for this “early demand” and generates a pricing policy that allows hosts to optimally update their prices as we approach check-in.
 
-#### What Does the Arrival Process Look Like?
+#### <u>What Does the Arrival Process Look Like?</u>
 
 To make the problem more concrete, let’s start by introducing some notation. Let *X_T(t) = P( Xijt=1 | Bij = 1)* represent the lead time distribution of guest bookings, where
 
-- *T* is a random variable representing lead time
+- *T* is a <u>random variable</u> representing lead time
 - *i* be check-in date
 - *j* be a listing of interest
-- *Bij* be 1 if the check-in day ended up getting booked
-- *Xijt* be 1 if the check-in day was booked at lead time
+- ~~*Bij* be 1 if the check-in day ended up getting booked~~
+- ~~*Xijt* be 1 if the check-in day was booked at lead time~~
 
 The figure below is an example of the lead time distribution aggregated to a market level. As we can see, the booking mass density gradually increases as we approach check-in (right to left), since guests don’t always plan their trips well in advance.
 
@@ -59,7 +59,7 @@ In addition to these challenges, close examination of the lead time distribution
 
 Modern ML models fare very well in terms of predictive performance, but seldom model the underlying data generation mechanism. In contrast, structural models provide interpretability by allowing us to explicitly specify the relationships between the variables (features and responses) to reflect the process that gives rise to the data, but often fall short on predictive performance. Combining the two schools of thought allows us to exploit the strengths of each approach to better model the data generating process as well as achieve good model performance.
 
-When we have good intuition for a modeling task, we can use our insights to reinforce an ML model with structural context. Imagine we are looking to predict a response *Y* based on features *(X₀,…,Xn). O*rdinarily, we would train our favorite ML model to predict. However, suppose we also know that *Y is* distributed over an input feature *X₀* with a distribution *F* parameterized by 𝜃 i.e. *Y~ F(X₀; 𝜃 ),* we could leverage this information and decompose the task to learning 𝜃 using features *(X₀,…,Xn)*, and then simply plug our estimate of 𝜃 back into f to arrive at *Y* in the final step.
+When we have good intuition for a modeling task, we can use our insights to reinforce an ML model with ~~structural context~~. Imagine we are looking to predict a response *Y* based on features *(X₀,…,Xn). O*rdinarily, we would train our favorite ML model to predict. However, suppose we also know that *Y is* distributed over an input feature *X₀* with a distribution *F* ~~parameterized~~ by 𝜃 i.e. *Y~ F(X₀; 𝜃 ),* we could leverage this information and decompose the task to learning 𝜃 using features *(X₀,…,Xn)*, and then simply plug our estimate of 𝜃 back into f to arrive at *Y* in the final step.
 
 By employing this hybrid approach, we can leverage both the algorithmic powerhouse that ML provides and the informed intuition of statistical modeling. This is the approach we took to model lead time dynamics.
 
@@ -89,14 +89,14 @@ If we make a simple assumption that the number of bookings in a unit interval of
 
 ![img](https://cdn-images-1.medium.com/max/900/0*uZn1NwrHqIy8GNR1)
 
-This actually agrees with the observation we made earlier about the lead time distribution resembling the exponential family. This approach also has a nice Bayesian interpretation since the Gamma is the conjugate prior for the parameter in a Poisson process. The lead time distribution that results, will have the following probability density and cumulative distribution function:
+This actually agrees with the observation we made earlier about the lead time distribution resembling the exponential family. This approach also has a nice ~~Bayesian~~ interpretation since the Gamma is the conjugate prior for the parameter in a Poisson process. The lead time distribution that results, will have the following probability density and cumulative distribution function:
 
 With this structure in place, It becomes sufficient to predict the two parameters *⍺, β* and use them in the distribution’s functional form to generate the density at each lead time.
 
 Similarly, we alter the functional form to account for cyclical patterns too. We treat the arrival time series as an waveform and decompose it to extract the inherent components. This typically involves,
 
-1. De-trending the time series to work on the residuals
-2. Applying a Fourier Transform to get the resonant frequency (⍵)
+1. ~~De-trending~~ the time series to work on the residuals
+2. Applying a ~~Fourier Transform~~ to get the resonant frequency (⍵)
 3. Determining the amplitude (𝜌) and the phase angle (*φ)*
 
 As as result, we obtain the stationary oscillating waveform *f_c(t) = 𝜌.sin(⍵.t + φ)* that models the cyclic component. This can be extended to as many harmonics as needed based on the use case. Finally, we combine *f_c(t)* with *f_b(t)* to get the final functional form to characterize the arrival process
@@ -105,7 +105,7 @@ This form has 5 parameters *(⍺, β, ⍵, 𝜌, φ)*. To predict the lead time 
 
 #### 3. The Final Piece of the Puzzle — Forecasting the Parameters
 
-We start by building the training data with available predictors (*X*) and the empirical lead time distribution as the label (plot below). We then train our ML model to find the best parameter set *(⍺, β, ⍵, 𝜌, φ)* that maximizes likelihood given the training set. The resulting parameter estimates will best approximate the functional form *f_T(t)* to the observed empirical distribution. The plots below demonstrate this
+We start by building the training data with available ~~predictors~~ (*X*) and the empirical lead time distribution as the label (plot below). We then train our ML model to find the best parameter set *(⍺, β, ⍵, 𝜌, φ)* that maximizes likelihood given the training set. The resulting parameter estimates will best approximate the functional form *f_T(t)* to the observed empirical distribution. The plots below demonstrate this
 
 ![img](https://cdn-images-1.medium.com/max/1500/1*jZeNNlogXt8ZIwsjgzhfDQ.png)
 
